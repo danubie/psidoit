@@ -45,7 +45,7 @@ Function Get-IdoItCacheFile {
 
         If ( (Test-Path $CacheFile ) ) {
 
-            Return (Get-Content -Path $CacheFile -Raw -Encoding Default | ConvertFrom-Json).Data.Value
+            Return (Get-Content -Path $CacheFile -Raw -Encoding Default | ConvertFrom-Json).Data
 
         }
 
