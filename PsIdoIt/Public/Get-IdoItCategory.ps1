@@ -113,15 +113,19 @@ Function Get-IdoItCategory {
             $ParameterAttribute = New-Object System.Management.Automation.ParameterAttribute
             $ParameterAttribute.Mandatory = $True
             $ParameterAttribute.ParameterSetName = "Category"
-
-
-            # Add the attributes to the attributes collection
             $AttributeCollection.Add($ParameterAttribute)
-            # Create the dictionary
             $RuntimeParameterDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
             # Generate and set the ValidateSet
-
-            $Category = Get-IdoitCacheFile -CacheType Constant | Where-Object {(($_.type -eq "Global") -or ($_.type -eq "Specific"))}
+            $Category = $null
+            if ($Id -gt 0) {
+                $obj = Get-IdoitObject -Id $Id -ErrorAction SilentlyContinue
+                if ($obj) {
+                    $Category = Get-IdoItObjectTypeCategory -Type $obj.Objecttype
+                }
+            }
+            if ($null -eq $Category) {
+                $Category = Get-IdoitCacheFile -CacheType Constant | Where-Object {(($_.type -eq "Global") -or ($_.type -eq "Specific"))}
+            }
 
             $arrSet = $Category.Const
             $ValidateSetAttribute = New-Object System.Management.Automation.ValidateSetAttribute($arrSet)
