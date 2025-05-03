@@ -69,7 +69,8 @@ FormatsToProcess = 'psidoit.Format.ps1xml'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Add-IdoItCategory','Add-IdoItDialog','Connect-IdoIt','Disconnect-IdoIt','Get-IdoItCategory','Get-IdoItCategoryInfo','Get-IdoItConstant','Get-IdoItDialog','Get-IdoItLocationTree','Get-IdoItObject','Get-IdoItObjectByFilter','Get-IdoItObjectByRelation','Get-IdoItObjectType','Get-IdoItObjectTypeCategory','Get-IdoItObjectTypeGroup','Get-IdoItReport','Get-IdoItVersion','New-IdoItObject','Remove-IdoItCategory','Remove-IdoItDialog','Remove-IdoItObject','Set-IdoItCategory','Set-IdoItDialog','Set-IdoItObject')
+FunctionsToExport = @('Add-IdoItCategory','Add-IdoItDialog','Connect-IdoIt','Disconnect-IdoIt','Get-IdoItCategory','Get-IdoItCategoryInfo','Get-IdoItConstant','Get-IdoItDialog','Get-IdoItLocationTree','Get-IdoItObject','Get-IdoItObjectByFilter','Get-IdoItObjectByRelation','Get-IdoItObjectType','Get-IdoItObjectTypeCategory','Get-IdoItObjectTypeGroup','Get-IdoItReport','Get-IdoItVersion','New-IdoItObject','Remove-IdoItCategory','Remove-IdoItDialog','Remove-IdoItObject','Set-IdoItCategory','Set-IdoItDialog','Set-IdoItObject',
+    'Show-IdoItObjectProperties')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
