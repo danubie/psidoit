@@ -20,6 +20,9 @@ Function Get-IdoItVersion {
     #CheckCmdbConnection
 
     $ResultObj = Invoke-IdoIt -Method "idoit.version" -Params $Params
-
+    [int32] $versionInt = 0
+    if ([Int32]::TryParse($ResultObj.Version, [ref]$versionInt)) {
+        $ResultObj.version = "$($versionInt).0.0"
+    }
     Return $ResultObj | Select-Object version, type, step
 }

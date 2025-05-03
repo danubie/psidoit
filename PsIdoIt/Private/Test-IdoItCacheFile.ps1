@@ -58,9 +58,11 @@ Function Test-IdoItCacheFile {
              If ( $PSBoundParameters.ContainsKey('Expiry') ) {
 
                 $CacheData = Get-Content -Path $CacheFile -Raw | ConvertFrom-Json
-
-
-                $TimeSpan = New-TimeSpan -Start ([Datetime]::parseexact($CacheData.CreationTime, "o", $Null))
+                if ($PSVersionTable.PSVersion.Major -ge 6) {
+                    $TimeSpan = New-TimeSpan -Start $CacheData.CreationTime
+                } else {
+                    $TimeSpan = New-TimeSpan -Start ([Datetime]::parseexact($CacheData.CreationTime, "o", $Null))
+                }
                 Write-Verbose "Age of the cache file content is $TimeSpan"
 
                 If ($TimeSpan -gt $Expiry) {
@@ -73,7 +75,7 @@ Function Test-IdoItCacheFile {
 
 
        }
-       Catch [Exeption] {
+       Catch {
 
            Throw $_
 
