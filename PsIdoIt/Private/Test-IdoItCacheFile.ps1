@@ -58,8 +58,6 @@ Function Test-IdoItCacheFile {
              If ( $PSBoundParameters.ContainsKey('Expiry') ) {
 
                 $CacheData = Get-Content -Path $CacheFile -Raw | ConvertFrom-Json
-
-
                 if ($PSVersionTable.PSVersion.Major -ge 6) {
                     $TimeSpan = New-TimeSpan -Start $CacheData.CreationTime
                 } else {
