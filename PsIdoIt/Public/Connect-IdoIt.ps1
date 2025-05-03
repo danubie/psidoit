@@ -184,7 +184,7 @@ function Connect-IdoIt {
     If (!$CmdbVer) {
         Throw "There was an unkown problem getting the i-doit version."
     }
-    Elseif (($CmdbVer.Major -lt 1) -or ($CmdbVer.Minor -lt 7)) {
+    Elseif ($CmdbVer-lt "1.7") {
         Throw "PSCmdb needs minimum Version 1.7 to work. You are running i-doit $($CmdbVer.Major).$($CmdbVer.Minor)"
     }
 
