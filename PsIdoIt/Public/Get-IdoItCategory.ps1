@@ -174,25 +174,18 @@ Function Get-IdoItCategory {
             #other Cmdlets
 
             ForEach ($O in $ResultObj) {
-
                 If (@("CatgId", "CatsId") -contains $PSCmdlet.ParameterSetName) {
-
                     $O | Add-Member -MemberType NoteProperty -Name $PSCmdlet.ParameterSetName.ToLower() -Value $O.Id
-
                 }
                 Else {
-
                     $O | Add-Member -MemberType NoteProperty -Name "RefCategory" -Value $Category
-
                 }
 
                 $O.Id = $O.ObjID
                 $O.PSObject.Properties.Remove("objID")
-
             }
 
             $ResultObj = $ResultObj | Add-ObjectTypeName -TypeName 'Idoit.Category'
-
             Return $ResultObj | ConvertFrom-IdoItResultObject
         }
     }
