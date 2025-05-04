@@ -128,7 +128,7 @@ Function Invoke-IdoIt {
 
     Try {
 
-        Write-Verbose "Trying to innvoke WebRequest to I-doIt"
+        Write-Verbose "Invoke-WebRequest Method: $Method; params: $([PSCustomObject]$params)"
         $InvokeResult = Invoke-WebRequest -Uri $Uri -Method Post -Body $RequestBody -Headers $Headers
 
     }
@@ -163,9 +163,11 @@ Function Invoke-IdoIt {
         Write-Verbose "Checking if response contains error object"
 
         If ($ContentJson.PSObject.Properties.Name -Contains 'Error') {
-
             Throw "Error code $($ContentJson.Error.Code) - $($ContentJson.error.data.error)"
-
+            <#
+            Known error codes:
+            -32604 - session expired or invalid login data
+            #>
         }
 
         Else {
