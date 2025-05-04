@@ -169,6 +169,7 @@ Function Get-IdoItCategory {
                 Throw $_
             }
 
+            if ($null -eq $ResultObj) { return }
             #We remove the original property id and rename objID to id to be consistant and be able to pipe results to
             #other Cmdlets
 
