@@ -81,6 +81,7 @@ FunctionsToExport = @(
     'New-IdoItObject',
     'Remove-IdoItCategory','Remove-IdoItDialog','Remove-IdoItObject',
     'Set-IdoItCategory','Set-IdoItDialog','Set-IdoItObject',
+    'Search-IdoItObject',
     'Show-IdoItObjectProperties'
 )
 
